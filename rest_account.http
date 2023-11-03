@@ -1,0 +1,37 @@
+@baseUrl = http://localhost:3000
+@apiPath = account
+@id = 6
+@JwtHeader = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50TnVtYmVyIjo2NDU4MTUsImV4cGlyZXNBdCI6MTUwMDB9.3RApz9PnKKWRjHA-nfko0r5tXb0QKYzTa_jXsG2h7QU
+
+###
+GET {{baseUrl}}/{{apiPath}} HTTP/1.1
+
+###
+GET {{baseUrl}}/{{apiPath}}/{{id}} HTTP/1.1
+x-jwt-token: {{JwtHeader}}
+
+###
+POST {{baseUrl}}/{{apiPath}} HTTP/1.1
+Content-Type: application/json
+
+{
+  "FirstName": "Bethany",
+  "LastName": "Pie"
+}
+
+###
+PUT {{baseUrl}}/{{apiPath}}/{{id}} HTTP/1.1
+Content-Type: application/json
+
+{
+  "ID": 399,
+  "FirstName": "Anthony",
+  "LastName": "GG",
+  "Number": 417152,
+  "Balance": 0
+}
+
+
+###
+DELETE {{baseUrl}}/{{apiPath}}/{{id}} HTTP/1.1
+x-jwt-token: {{JwtHeader}}
